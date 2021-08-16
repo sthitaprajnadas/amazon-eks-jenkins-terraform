@@ -14,16 +14,16 @@ echo "Install git"
 yum install -y git
 
 echo "Install Docker engine"
-yum update -y
-yum install docker -y
+sudo yum update -y
+sudo yum install docker -y
 #sudo usermod -a -G docker jenkins
 #sudo service docker start
 sudo chkconfig docker on
 
 echo "Install Jenkins"
-wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
-rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
-yum install -y jenkins
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install -y jenkins
 sudo usermod -a -G docker jenkins
 sudo chkconfig jenkins on
 sudo service docker start
